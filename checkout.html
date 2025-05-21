@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout | Masala Mahal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-[#FFFBF2] text-gray-800">
+
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="assets/images/logo.png" alt="Logo" class="w-10 h-10" />
+        <h1 class="text-2xl font-bold text-[#D94B2A]">Masala Mahal</h1>
+      </div>
+      <nav class="space-x-6 font-medium flex items-center">
+        <a href="index.html" class="hover:text-[#F6A623]">Home</a>
+        <a href="menu.html" class="hover:text-[#F6A623]">Menu</a>
+        <a href="about.html" class="hover:text-[#F6A623]">About</a>
+        <a href="contact.html" class="hover:text-[#F6A623]">Contact</a>
+        <a href="cart.html" class="hover:text-[#F6A623] text-xl">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold mb-8 text-[#184A45] text-center">🧾 Checkout</h2>
+
+    <div class="bg-white shadow-md rounded-lg p-6 mb-10">
+      <h3 class="text-xl font-semibold mb-4 text-[#D94B2A]">Your Order</h3>
+      <div id="cart-items" class="space-y-4"></div>
+      <div class="mt-6 flex justify-end font-bold text-lg">
+        Subtotal: <span id="subtotal" class="text-[#F6A623] ml-2">$0.00</span>
+      </div>
+    </div>
+
+    <form id="checkout-form" class="bg-white shadow-md rounded-lg p-6 space-y-6">
+      <h3 class="text-xl font-semibold text-[#D94B2A]">Delivery Details</h3>
+      <input type="text" required placeholder="Full Name" class="w-full px-4 py-2 border border-gray-300 rounded-md">
+      <input type="email" required placeholder="Email" class="w-full px-4 py-2 border border-gray-300 rounded-md">
+      <input type="tel" required placeholder="Phone Number" class="w-full px-4 py-2 border border-gray-300 rounded-md">
+
+      <div>
+        <label class="block font-medium mb-2">Delivery Method:</label>
+        <select id="delivery-method" required class="w-full px-4 py-2 border rounded-md">
+          <option value="pickup">Pickup</option>
+          <option value="delivery">Delivery</option>
+        </select>
+      </div>
+
+      <div id="delivery-address-group" class="hidden">
+        <label class="block font-medium mb-2 mt-4">Delivery Address:</label>
+        <textarea placeholder="Enter delivery address" class="w-full px-4 py-2 border rounded-md" rows="3"></textarea>
+      </div>
+
+      <div class="text-sm text-gray-600 italic" id="estimated-time">
+        ⏱ Estimated pickup ready in 15–20 minutes.
+      </div>
+
+      <div>
+        <label class="block font-medium mb-2 mt-4">Payment Method:</label>
+        <input type="text" placeholder="Card ending in 1234 (simulated)" required class="w-full px-4 py-2 border border-gray-300 rounded-md">
+      </div>
+
+      <button type="submit" class="w-full bg-[#F6A623] hover:bg-[#D94B2A] text-white font-bold py-3 px-6 rounded-md">
+        Confirm & Place Order
+      </button>
+    </form>
+
+    <div id="confirmation-box" class="hidden mt-12 text-center bg-green-50 p-6 rounded-md shadow border border-green-200">
+      <h3 class="text-2xl font-bold text-green-600 mb-2">🎉 Order Confirmed!</h3>
+      <p class="text-gray-700 mb-2">Thank you for your order. Your food is being prepared.</p>
+      <p class="text-gray-700"><strong>Tracking Number:</strong> <span id="tracking-number" class="text-[#184A45] font-mono">#</span></p>
+      <p class="text-sm text-gray-500 mt-2">You’ll receive an email confirmation shortly.</p>
+    </div>
+  </main>
+
+  <footer class="bg-[#184A45] text-white text-center py-6 mt-16">
+    <p>&copy; 2025 Masala Mahal. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartContainer = document.getElementById("cart-items");
+    const subtotalEl = document.getElementById("subtotal");
+
+    let subtotal = 0;
+    cart.forEach(item => {
+      const price = parseFloat(item.price.replace('$', '')) * item.quantity;
+      subtotal += price;
+
+      const el = document.createElement("div");
+      el.className = "flex justify-between items-center border-b pb-3";
+
+      el.innerHTML = `
+        <div>
+          <h4 class="font-semibold text-[#184A45]">${item.name}</h4>
+          <p class="text-sm text-gray-600">Quantity: ${item.quantity}</p>
+        </div>
+        <div class="text-[#F6A623] font-semibold">$${price.toFixed(2)}</div>
+      `;
+
+      cartContainer.appendChild(el);
+    });
+
+    subtotalEl.textContent = "$" + subtotal.toFixed(2);
+
+    const deliverySelect = document.getElementById("delivery-method");
+    const deliveryGroup = document.getElementById("delivery-address-group");
+    const timeMessage = document.getElementById("estimated-time");
+
+    deliverySelect.addEventListener("change", () => {
+      const isDelivery = deliverySelect.value === "delivery";
+      deliveryGroup.classList.toggle("hidden", !isDelivery);
+      timeMessage.textContent = isDelivery
+        ? "🚚 Estimated delivery in 30–45 minutes."
+        : "⏱ Estimated pickup ready in 15–20 minutes.";
+    });
+
+    document.getElementById("checkout-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const confirmationBox = document.getElementById("confirmation-box");
+      const tracking = "MM" + Math.floor(Math.random() * 90000 + 10000);
+      document.getElementById("tracking-number").textContent = "#" + tracking;
+      confirmationBox.classList.remove("hidden");
+      localStorage.removeItem("cart");
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 5000);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Masala Mahal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    .fade-in {
+      animation: fadeIn 1.2s ease-out forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body class="bg-[#FFFBF2] text-gray-800">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="assets/images/logo.png" alt="Logo" class="w-10 h-10">
+        <h1 class="text-2xl font-bold text-[#D94B2A]">Masala Mahal</h1>
+      </div>
+      <nav class="flex items-center space-x-6 font-medium">
+        <a href="index.html" class="hover:text-[#F6A623]">Home</a>
+        <a href="menu.html" class="hover:text-[#F6A623]">Menu</a>
+        <a href="about.html" class="hover:text-[#F6A623]">About</a>
+        <a href="contact.html" class="hover:text-[#F6A623]">Contact</a>
+        <a href="checkout.html" class="hover:text-[#F6A623]">Checkout</a>
+        <a href="cart.html" class="hover:text-[#F6A623] text-xl">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- About Section -->
+  <main class="max-w-7xl mx-auto px-6 py-20 fade-in">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="fade-in">
+        <img src="assets/images/restaurant.jpg" alt="Restaurant Interior" class="rounded-lg shadow-xl w-full">
+      </div>
+      <div>
+        <h2 class="text-4xl font-bold mb-6 text-[#184A45]">Our Story</h2>
+        <p class="mb-4 text-gray-700 leading-relaxed">
+          Founded in 2010, Masala Mahal is a celebration of India’s rich vegetarian traditions. 
+          What started as a dream to share home-style meals has grown into a beloved community space where flavor and culture meet.
+        </p>
+        <p class="mb-4 text-gray-700 leading-relaxed">
+          Every dish on our menu is crafted with intention — from spices imported directly from India to fresh, local ingredients. 
+          Whether it’s your first taste or a nostalgic favorite, we want every bite to feel like home.
+        </p>
+        <div class="mt-6 space-y-4">
+          <div class="flex items-start space-x-3">
+            <span class="text-[#F6A623] text-xl mt-1"><i class="fas fa-leaf"></i></span>
+            <p class="text-sm text-gray-700"><strong>100% Vegetarian:</strong> Our entire kitchen is meat- and egg-free — always has been, always will be.</p>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-[#F6A623] text-xl mt-1"><i class="fas fa-star"></i></span>
+            <p class="text-sm text-gray-700"><strong>Authentic Spices:</strong> We only use real Indian spices sourced directly from trusted suppliers in India.</p>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-[#F6A623] text-xl mt-1"><i class="fas fa-heart"></i></span>
+            <p class="text-sm text-gray-700"><strong>From the Heart:</strong> Inspired by family, powered by tradition — everything is made with care.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#184A45] text-white text-center py-6">
+    <p>&copy; 2025 Masala Mahal. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

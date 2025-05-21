@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu | Masala Mahal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    .menu-card:hover .overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .overlay {
+      transition: all 0.3s ease-in-out;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #f59e0b;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      z-index: 50;
+      opacity: 0;
+      animation: fadeInOut 2s ease forwards;
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateY(20px); }
+      10% { opacity: 1; transform: translateY(0); }
+      90% { opacity: 1; }
+      100% { opacity: 0; transform: translateY(20px); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      animation: fadeIn 0.7s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-[#FFFBF2] text-gray-800">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="assets/images/logo.png" alt="Logo" class="w-10 h-10" />
+        <h1 class="text-2xl font-bold text-[#D94B2A]">Masala Mahal</h1>
+      </div>
+      <nav class="space-x-6 font-medium">
+        <a href="index.html" class="hover:text-[#F6A623]">Home</a>
+        <a href="menu.html" class="text-[#F6A623] font-semibold">Menu</a>
+        <a href="about.html" class="hover:text-[#F6A623]">About</a>
+        <a href="contact.html" class="hover:text-[#F6A623]">Contact</a>
+        <a href="cart.html" class="hover:text-[#F6A623] text-xl">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="max-w-7xl mx-auto px-6 py-16">
+    <h2 class="text-4xl font-bold text-center text-[#184A45] mb-12">Our Menu</h2>
+    <div class="space-y-16">
+
+      <!-- Appetizers -->
+      <section>
+        <h3 class="text-2xl font-bold text-[#D94B2A] mb-8">Appetizers</h3>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Pani Puri -->
+          <div class="menu-card bg-white rounded-lg shadow relative overflow-hidden group transition hover:shadow-lg fade-in">
+            <div class="h-40 bg-gray-200 relative">
+              <img src="assets/images/pani puri.jpg" alt="Pani Puri" class="w-full h-full object-cover" />
+              <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                <button onclick='addToCart("Pani Puri", 8)' class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-semibold">Add to Order</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-bold text-lg">Pani Puri
+                  <span class="ml-2 text-xs bg-amber-100 text-amber-700 px-2 py-1 rounded-full font-semibold">Popular</span>
+                </h4>
+
+                <span class="text-[#F6A623] font-semibold">$8</span>
+              </div>
+              <p class="text-sm text-gray-600">A sweet and sour broth inside of a hollow, crispy, thin bread bowl that comes with multiple toppings to create variety.</p>
+            </div>
+          </div>
+
+          <!-- Punjabi Samosa -->
+          <div class="menu-card bg-white rounded-lg shadow relative overflow-hidden group transition hover:shadow-lg fade-in">
+            <div class="h-40 bg-gray-200 relative">
+              <img src="assets/images/samosa.png" alt="Punjabi Samosa" class="w-full h-full object-cover" />
+              <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                <button onclick='addToCart("Punjabi Samosa", 8)' class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-semibold">Add to Order</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-bold text-lg">Punjabi Samosa</h4>
+                <span class="text-[#F6A623] font-semibold">$8</span>
+              </div>
+              <p class="text-sm text-gray-600">Crispy pastries stuffed with spicy potato and peas. Served with chutney.</p>
+            </div>
+          </div>
+
+          <!-- Aloo Chaat -->
+          <div class="menu-card bg-white rounded-lg shadow relative overflow-hidden group transition hover:shadow-lg fade-in">
+            <div class="h-40 bg-gray-200 relative">
+              <img src="assets/images/aloo chaat.png" alt="Aloo Chaat" class="w-full h-full object-cover" />
+              <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                <button onclick='addToCart("Aloo Chaat", 7)' class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-semibold">Add to Order</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-bold text-lg">Aloo Chaat</h4>
+                <span class="text-[#F6A623] font-semibold">$7</span>
+              </div>
+              <p class="text-sm text-gray-600">Tangy and spicy potatoes topped with chutneys and crunchy sev.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Main Courses -->
+      <section>
+        <h3 class="text-2xl font-bold text-[#D94B2A] mb-8">Main Courses</h3>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Vegetable Biryani -->
+          <div class="menu-card bg-white rounded-lg shadow relative overflow-hidden group transition hover:shadow-lg fade-in">
+            <div class="h-40 bg-gray-200 relative">
+              <img src="assets/images/biryani.png" alt="Vegetable Biryani" class="w-full h-full object-cover" />
+              <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                <button onclick='addToCart("Vegetable Biryani", 14.99)' class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-semibold">Add to Order</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-bold text-lg">Vegetable Biryani</h4>
+                <span class="text-[#F6A623] font-semibold">$14.99</span>
+              </div>
+              <p class="text-sm text-gray-600">Basmati rice with vegetables, saffron & aromatic spices.</p>
+            </div>
+          </div>
+
+          <!-- Paneer Tikka Masala -->
+          <div class="menu-card bg-white rounded-lg shadow relative overflow-hidden group transition hover:shadow-lg fade-in">
+            <div class="h-40 bg-gray-200 relative">
+              <img src="assets/images/Paneer Tikka Masala.png" alt="Paneer Tikka Masala" class="w-full h-full object-cover" />
+              <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                <button onclick='addToCart("Paneer Tikka Masala", 5.5)' class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-semibold">Add to Order</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-bold text-lg">Paneer Tikka Masala
+                  <span class="ml-2 text-xs bg-amber-100 text-amber-700 px-2 py-1 rounded-full font-semibold">Popular</span>
+                </h4>
+                <span class="text-[#F6A623] font-semibold">$14.99</span>
+              </div>
+              <p class="text-sm text-gray-600">Grilled paneer inside of a scrumptious and rich, tomato curry.</p>
+            </div>
+          </div>
+
+          <!-- Chana Masala -->
+          <div class="menu-card bg-white rounded-lg shadow relative overflow-hidden group transition hover:shadow-lg fade-in">
+            <div class="h-40 bg-gray-200 relative">
+              <img src="assets/images/chana.png" alt="Chana Masala" class="w-full h-full object-cover" />
+              <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                <button onclick='addToCart("Chana Masala", 12.99)' class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-semibold">Add to Order</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-bold text-lg">Chana Masala</h4>
+                <span class="text-[#F6A623] font-semibold">$12.99</span>
+              </div>
+              <p class="text-sm text-gray-600">Chickpeas simmered in a spicy tomato and onion gravy.</p>
+            </div>
+          </div>
+
+          <!-- Baingan Bharta -->
+          <div class="menu-card bg-white rounded-lg shadow relative overflow-hidden group transition hover:shadow-lg fade-in">
+            <div class="h-40 bg-gray-200 relative">
+              <img src="assets/images/bangin.png" alt="Baingan Bharta" class="w-full h-full object-cover" />
+              <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                <button onclick='addToCart("Baingan Bharta", 13.49)' class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-semibold">Add to Order</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-bold text-lg">Baingan Bharta</h4>
+                <span class="text-[#F6A623] font-semibold">$13.49</span>
+              </div>
+              <p class="text-sm text-gray-600">Smoky roasted eggplant mashed with spices and onions.</p>
+            </div>
+          </div>
+
+          <!-- Aloo Gobi -->
+          <div class="menu-card bg-white rounded-lg shadow relative overflow-hidden group transition hover:shadow-lg fade-in">
+            <div class="h-40 bg-gray-200 relative mt-8">
+              <img src="assets/images/Aloo Gobi.png" alt="Aloo Gobi" class="w-full h-full object-cover" />
+              <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                <button onclick='addToCart("Aloo Gobi", 11.99)' class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-semibold">Add to Order</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-bold text-lg">Aloo Gobi</h4>
+                <span class="text-[#F6A623] font-semibold">$11.99</span>
+              </div>
+              <p class="text-sm text-gray-600">Cauliflower and potatoes cooked with turmeric and spices.</p>
+            </div>
+          </div>
+
+          <!-- Matar Paneer -->
+          <div class="menu-card bg-white rounded-lg shadow relative overflow-hidden group transition hover:shadow-lg fade-in">
+            <div class="h-40 bg-gray-200 relative mt-8">
+              <img src="assets/images/mata.png" alt="Matar Paneer" class="w-full h-full object-cover" />
+              <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                <button onclick='addToCart("Matar Paneer", 13.99)' class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-semibold">Add to Order</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-bold text-lg">Matar Paneer</h4>
+                <span class="text-[#F6A623] font-semibold">$13.99</span>
+              </div>
+              <p class="text-sm text-gray-600">Paneer cubes and green peas in a rich tomato gravy.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Drinks -->
+      <section>
+        <h3 class="text-2xl font-bold text-[#D94B2A] mb-8">Drinks</h3>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Mango Lassi -->
+          <div class="menu-card bg-white rounded-lg shadow relative overflow-hidden group transition hover:shadow-lg fade-in">
+            <div class="h-40 bg-gray-200 relative">
+              <img src="assets/images/mango lassi.png" alt="Mango Lassi" class="w-full h-full object-cover" />
+              <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                <button onclick='addToCart("Mango Lassi", 5)' class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-semibold">Add to Order</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-bold text-lg">Mango Lassi
+                  <span class="ml-2 text-xs bg-amber-100 text-amber-700 px-2 py-1 rounded-full font-semibold">Popular</span>
+                </h4>
+                <span class="text-[#F6A623] font-semibold">$5.00</span>
+              </div>
+              <p class="text-sm text-gray-600">Creamy yogurt drink blended with sweet mango pulp.</p>
+            </div>
+          </div>
+
+          <!-- Masala Chai -->
+          <div class="menu-card bg-white rounded-lg shadow relative overflow-hidden group transition hover:shadow-lg fade-in">
+            <div class="h-40 bg-gray-200 relative">
+              <img src="assets/images/chai.png" alt="Masala Chai" class="w-full h-full object-cover" />
+              <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                <button onclick='addToCart("Masala Chai", 3)' class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-semibold">Add to Order</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-bold text-lg">Masala Chai</h4>
+                <span class="text-[#F6A623] font-semibold">$3.00</span>
+              </div>
+              <p class="text-sm text-gray-600">Traditional Indian tea brewed with milk and aromatic spices.</p>
+            </div>
+          </div>
+
+          <!-- Water Bottle -->
+          <div class="menu-card bg-white rounded-lg shadow relative overflow-hidden group transition hover:shadow-lg fade-in">
+            <div class="h-40 bg-gray-200 relative">
+              <img src="assets/images/waterb.png" alt="Water Bottle" class="w-full h-full object-cover" />
+              <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                <button onclick='addToCart("Water Bottle", 2)' class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-semibold">Add to Order</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-bold text-lg">Water Bottle</h4>
+                <span class="text-[#F6A623] font-semibold">$2.00</span>
+              </div>
+              <p class="text-sm text-gray-600">Refreshing bottled mineral water served cold.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Desserts -->
+      <section>
+        <h3 class="text-2xl font-bold text-[#D94B2A] mb-8">Desserts</h3>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Gulab Jamun -->
+          <div class="menu-card bg-white rounded-lg shadow relative overflow-hidden group transition hover:shadow-lg fade-in">
+            <div class="h-40 bg-gray-200 relative">
+              <img src="assets/images/gulab jamun.png" alt="Gulab Jamun" class="w-full h-full object-cover" />
+              <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                <button onclick='addToCart("Gulab Jamun", 5.5)' class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-semibold">Add to Order</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-bold text-lg">Gulab Jamun
+                   <span class="ml-2 text-xs bg-amber-100 text-amber-700 px-2 py-1 rounded-full font-semibold">Popular</span>
+                  </h4>                
+                  <span class="text-[#F6A623] font-semibold">$5.50</span>
+              </div>
+              <p class="text-sm text-gray-600">Soft fried milk balls soaked in rose-flavored sugar syrup.</p>
+            </div>
+          </div>
+
+          <!-- Kheer -->
+          <div class="menu-card bg-white rounded-lg shadow relative overflow-hidden group transition hover:shadow-lg fade-in">
+            <div class="h-40 bg-gray-200 relative">
+              <img src="assets/images/Kheer.png" alt="Kheer" class="w-full h-full object-cover" />
+              <div class="overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                <button onclick='addToCart("Kheer", 5)' class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-semibold">Add to Order</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-bold text-lg">Kheer</h4>
+                <span class="text-[#F6A623] font-semibold">$5.00</span>
+              </div>
+              <p class="text-sm text-gray-600">Traditional Indian rice pudding with cardamom and nuts.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div> <!-- end of all sections -->
+  </main>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden">Added to Order ✅</div>
+
+  <!-- Footer -->
+  <footer class="bg-[#184A45] text-white text-center py-6 mt-16">
+    <p>&copy; 2025 Masala Mahal. All rights reserved.</p>
+  </footer>
+
+  <!-- Cart Script -->
+  <script>
+    const toast = document.getElementById("toast");
+
+    function addToCart(name, price) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const index = cart.findIndex(item => item.name === name);
+
+      if (index > -1) {
+        cart[index].quantity++;
+      } else {
+        cart.push({ name, price: "$" + price.toFixed(2), quantity: 1 });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      // Show toast
+      toast.classList.remove("hidden");
+      setTimeout(() => toast.classList.add("hidden"), 2000);
+    }
+  </script>
+</body>
+</html>
