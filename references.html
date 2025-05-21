@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <title>About Us | Masala Mahal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    .fade-in {
+      animation: fadeIn 1.2s ease-out forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+      <!-- Navbar -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="assets/images/logo.png" alt="Logo" class="w-10 h-10">
+        <h1 class="text-2xl font-bold text-[#D94B2A]">Masala Mahal</h1>
+      </div>
+      <nav class="flex items-center space-x-6 font-medium">
+        <a href="index.html" class="hover:text-[#F6A623]">Home</a>
+        <a href="menu.html" class="hover:text-[#F6A623]">Menu</a>
+        <a href="about.html" class="hover:text-[#F6A623]">About</a>
+        <a href="contact.html" class="hover:text-[#F6A623]">Contact</a>
+        <a href="checkout.html" class="hover:text-[#F6A623]">Checkout</a>
+        <a href="references.html" class="hover:text-[#F6A623]">References</a>
+        <a href="cart.html" class="hover:text-[#F6A623] text-xl">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="flex flex-col items-center justify-center min-h-screen space-y-4 fade-in">
+    <a href="assets/documents/crc-checklist.pdf" target="_blank" class="underline text-lg text-blue-600 hover:text-blue-800">
+      Copyright Checklist Link (click here)
+    </a>
+    <a href="assets/documents/worklog.pdf" target="_blank" class="underline text-lg text-blue-600 hover:text-blue-800">
+      Webmaster Worklog Link (click here)
+    </a>
+  </div>
+</body>
